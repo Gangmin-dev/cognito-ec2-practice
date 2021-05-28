@@ -5,6 +5,8 @@ const loginRouter = require("./routes/login");
 const port = 8426;
 const app = express();
 
+app.use(express.json());
+
 app.use("/login", loginRouter);
 
 app.use((req, res, next) => {
@@ -23,11 +25,5 @@ app.use(function (err, req, res, next) {
 });
 
 app.listen(port, () => {
-  let a = {
-    email: "aa@aa.com",
-    phoneNumber: "+8201055645274",
-  };
-
-  console.log(Object.entries(a));
   console.log(`Run Server with port number ${port}`);
 });
